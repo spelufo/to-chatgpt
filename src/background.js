@@ -11,8 +11,10 @@ function main() {
 async function setup() {
   settings = await load_settings()
   function create_context_menues() {
-    for (let template_name in settings.templates)
-      chrome.contextMenus.create({id: template_name, title: template_name, contexts: ['selection']})
+    for (let template_name in settings.templates) {
+      let menu = {id: template_name, title: template_name, contexts: ['selection']}
+      chrome.contextMenus.create(menu)
+    }
   }
   chrome.contextMenus.removeAll(create_context_menues)
 }
@@ -30,8 +32,9 @@ function open_chatgpt() {
 }
 
 function on_message(message, sender, respond) {
+  let this_file = this  // refers to the global scope
   let handler_name = "on_" + message.event
-  let handler = this[handler_name]
+  let handler = this_file[handler_name]
   if (!handler) {
     console.error("Message handler not found: " + handler_name)
     return

@@ -1,4 +1,4 @@
-.PHONY: build run lint
+.PHONY: build run lint clean
 
 all: build
 
@@ -10,3 +10,6 @@ run:
 
 lint:
 	web-ext lint
+
+clean:
+	rm -rf web-ext-artifacts

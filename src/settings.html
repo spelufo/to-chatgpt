@@ -3,13 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+    #templates {
+      width: 100%;
+      min-width:  500px;
+      min-height: 200px;
+      font: fixed;
+    }
+  </style>
 </head>
 <body>
   <form>
-    <label>Templates <textarea type="text" id="templates" name="templates" /></textarea>
-    <button type="submit">Save</button>
+    <label>Templates (one line per menu item).</label>
+    <div><textarea type="text" id="templates" name="templates"></textarea></div>
+    <button id="save" type="sumbit">Save</button>
+    <button id="reset">Reset</button>
   </form>
-  <div id="settings"></div>
   <script src="settings.js"></script>
   <script src="settings_ui.js"></script>
 </body>
