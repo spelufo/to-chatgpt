@@ -1,3 +1,5 @@
+console.log("chat.js")
+
 function main() {
   wait_ready(on_ready)
 }

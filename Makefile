@@ -1,4 +1,4 @@
-.PHONY: build run
+.PHONY: build run lint
 
 all: build
 
@@ -6,4 +6,7 @@ build:
 	web-ext build --overwrite-dest
 
 run:
-	web-ext run --devtools
+	web-ext run --devtools --url about:addons
+
+lint:
+	web-ext lint
