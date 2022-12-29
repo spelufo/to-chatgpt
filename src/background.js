@@ -49,6 +49,7 @@ function on_settings_saved(message, sender, respond) {
 function on_ready(message, sender, respond) {
   if (!the_query) return;
   respond({command: "write_prompt", args: [the_query]})
+  the_query = ""
 }
 
 main()
