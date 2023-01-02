@@ -16,12 +16,13 @@ const DEFAULTS = {
   },
 }
 
-async function load_settings() {
-  let settings = await browser.storage.local.get(DEFAULTS)
-  return settings
+function load_settings() {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get(DEFAULTS, resolve)
+  })
 }
 
 async function save_settings(settings) {
-  await browser.storage.local.set(settings)
-  browser.runtime.sendMessage({event: "settings_saved"})
+  await chrome.storage.local.set(settings)
+  chrome.runtime.sendMessage({event: "settings_saved"})
 }

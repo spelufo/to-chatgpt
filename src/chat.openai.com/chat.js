@@ -21,7 +21,7 @@ function wait_ready(on_ready) {
 }
 
 async function on_ready() {
-  let r = await browser.runtime.sendMessage({event: "ready"})
+  let r = await chrome.runtime.sendMessage({event: "ready"})
   if (r) commands[r.command].apply(commands, r.args || [])
 }
 

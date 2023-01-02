@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "To ChatGPT",
+  "description": "Query ChatGPT with the browser's text selection.",
+  "version": "1.0",
+  "author": "Santiago Pelufo",
+  "homepage_url": "https://github.com/spelufo/to-chatgpt",
+  "action": {
+    "default_icon": "icons/favicon-32.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "tabs"
+  ],
+  "host_permissions": ["*://chat.openai.com"],
+  "background": {"scripts": ["src/settings.js", "src/background.js"]},
+  "options_ui": {"page": "src/settings.html"},
+  "content_scripts": [
+    {
+      "matches": ["*://chat.openai.com/*"],
+      "js": ["src/chat.openai.com/chat.js"]
+    }
+  ],
+  "commands": {
+    "to_chatgpt": {
+      "suggested_key": {"default": "Ctrl+Shift+1"},
+      "description": "Send to ChatGPT"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{eb3db35a-8c05-468a-b786-6d8c4e5f66aa}"
+    }
+  }
+}

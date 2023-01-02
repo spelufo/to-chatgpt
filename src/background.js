@@ -3,7 +3,7 @@ let the_query = ""
 
 function main() {
   chrome.contextMenus.onClicked.addListener(on_context_menu_clicked)
-  browser.runtime.onMessage.addListener(on_message)
+  chrome.runtime.onMessage.addListener(on_message)
   chrome.runtime.onInstalled.addListener(setup)
   setup()
 }
